@@ -1,0 +1,15 @@
+[submodule "src/robot_control"]
+	path = src/robot_control
+	url = https://github.com/BSSM-Mother/robot_control.git
+[submodule "src/robot_description"]
+	path = src/robot_description
+	url = https://github.com/BSSM-Mother/robot_description.git
+[submodule "src/robot_launch"]
+	path = src/robot_launch
+	url = https://github.com/BSSM-Mother/robot_launch.git
+[submodule "src/robot_base"]
+	path = src/robot_base
+	url = https://github.com/BSSM-Mother/robot_base.git
+[submodule "src/robot_perception"]
+	path = src/robot_perception
+	url = https://github.com/BSSM-Mother/robot_perception.git
