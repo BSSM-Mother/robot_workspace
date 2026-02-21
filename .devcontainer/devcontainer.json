@@ -1,6 +1,6 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
-  "dockerFile": "humble_full.Dockerfile",
+  "dockerFile": "jazzy_full.Dockerfile",
   "build": {
     "args": {
       "USERNAME": "ros",
