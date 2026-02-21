@@ -7,6 +7,7 @@ on:
       - foxy*
       - humble*
       - iron*
+      - jazzy*
       - main
   workflow_dispatch:
     
@@ -48,3 +49,4 @@ jobs:
     steps:
       - name: Check
         run: echo "Completed successfully!"
+
