@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CycloneDDS xmlns="https://cdds.io/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://cdds.io/config https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
+    <Domain id="any">
+        <General>
+            <!-- Enable network interface selection -->
+            <NetworkInterfaceAddress>auto</NetworkInterfaceAddress>
+            <!-- Enable automatic discovery -->
+            <AllowMulticast>true</AllowMulticast>
+        </General>
+        
+        <!-- UDP configuration for best compatibility -->
+        <Discovery>
+            <ParticipantIndex>auto</ParticipantIndex>
+            <MaxAutoParticipantIndex>9</MaxAutoParticipantIndex>
+        </Discovery>
+        
+        <Internal>
+            <!-- Increase thread pool size for better performance -->
+            <MinimumSocketReceiveBufferSize>default</MinimumSocketReceiveBufferSize>
+        </Internal>
+        
+        <Partitioning>
+            <!-- Allow communication across networks -->
+            <NetworkPartitions>
+                <NetworkPartition Name="default">
+                    <Address>
+                        <Unicast>udp/239.255.0.1:7401</Unicast>
+                        <Multicast>udp/239.255.0.1:7401</Multicast>
+                    </Address>
+                </NetworkPartition>
+            </NetworkPartitions>
+        </Partitioning>
+    </Domain>
+</CycloneDDS>

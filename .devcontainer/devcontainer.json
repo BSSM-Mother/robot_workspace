@@ -18,7 +18,7 @@
     // ==================== Optional ====================
 
     // Uncomment to use nvidia GPU
-    "--gpus=all",
+    // "--gpus=all",
 
     // Uncomment to use X11
     "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
@@ -38,12 +38,16 @@
     // "--device=/dev/dri",
 
     // Uncomment to use usb devices
-    "--device=/dev/bus/usb:/dev/bus/usb"
+    "--device=/dev/bus/usb:/dev/bus/usb",
+
+    // Uncomment to use webcam
+    "--device=/dev/video0:/dev/video0",
+    "--device=/dev/video1:/dev/video1"
   ],
   "containerEnv": {
     "USERNAME": "ros",
     "PYTHONBUFFERED": "1", // Disable stdout buffering
-    "DISPLAY": "${localEnv:DISPLAY}", // Needed for GUI try ":0" for windows
+    "DISPLAY": "192.168.224.1:0", // Needed for GUI try ":0" for windows
     "WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
     "XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}",
     "PULSE_SERVER": "${localEnv:PULSE_SERVER}",

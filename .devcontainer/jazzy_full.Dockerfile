@@ -118,6 +118,10 @@ RUN install -m 0755 -d /etc/apt/keyrings \
 # ******************************************************
 ENV DEBIAN_FRONTEND=dialog
 
+# Copy DDS configuration
+COPY cyclonedds.xml /etc/cyclonedds.xml
+ENV CYCLONEDDS_URI=file:///etc/cyclonedds.xml
+
 # Set up auto-source of workspace for ros user
 ARG WORKSPACE
 # Bash
@@ -127,6 +131,8 @@ RUN echo "if [ -f ${WORKSPACE}/install/local_setup.bash ]; then source ${WORKSPA
    && echo 'alias cyclone="export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp"' >> ${_HOME}/.bashrc \
    && echo 'alias fastdds="export RMW_IMPLEMENTATION=rmw_fastrtps_cpp"' >> ${_HOME}/.bashrc \
    && echo 'export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp' >> ${_HOME}/.bashrc \
+   && echo 'export ROS_DOMAIN_ID=0' >> ${_HOME}/.bashrc \
+   && echo 'export ROS_LOCALHOST_ONLY=0' >> ${_HOME}/.bashrc \
    && echo 'eval "$(register-python-argcomplete3 ros2)"' >> ${_HOME}/.bashrc \
    && echo 'eval "$(register-python-argcomplete3 colcon)"' >> ${_HOME}/.bashrc
 # Zsh
@@ -135,6 +141,8 @@ RUN echo "if [ -f ${WORKSPACE}/install/local_setup.zsh ]; then source ${WORKSPAC
    && echo 'alias cyclone="export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp"' >> ${_HOME}/.zshrc \
    && echo 'alias fastdds="export RMW_IMPLEMENTATION=rmw_fastrtps_cpp"' >> ${_HOME}/.zshrc \
    && echo 'export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp' >> ${_HOME}/.zshrc \
+   && echo 'export ROS_DOMAIN_ID=0' >> ${_HOME}/.zshrc \
+   && echo 'export ROS_LOCALHOST_ONLY=0' >> ${_HOME}/.zshrc \
    && echo "autoload -U bashcompinit" >> ${_HOME}/.zshrc \
    && echo "bashcompinit" >> ${_HOME}/.zshrc \
    && echo 'eval "$(register-python-argcomplete3 ros2)"' >> ${_HOME}/.zshrc \
