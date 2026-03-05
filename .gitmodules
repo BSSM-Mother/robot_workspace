@@ -15,3 +15,4 @@
 	url = https://github.com/BSSM-Mother/robot_perception.git
 [submodule "src/camera_ros"]
 	path = src/camera_ros
+	url = https://github.com/ChristianRauch/camera_ros.git
